@@ -22,12 +22,11 @@ public class PatientApp extends Application {
         }
     }
 
-    // Read CSV
     public static List<Patient> readCSV(String file) {
         List<Patient> list = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
-            br.readLine(); // skip header
+            br.readLine();
 
             while ((line = br.readLine()) != null) {
                 String[] d = line.split(",");
@@ -44,7 +43,6 @@ public class PatientApp extends Application {
         return list;
     }
 
-    // Calculate stats
     public static void calculateStats(List<Patient> list) {
         DescriptiveStatistics age = new DescriptiveStatistics();
         DescriptiveStatistics hr = new DescriptiveStatistics();
